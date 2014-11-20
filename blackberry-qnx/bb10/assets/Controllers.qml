@@ -141,7 +141,7 @@ Page
                 {
                     var sym, data;
                     data = dataModel.data(indexPath);
-                    sym = ButtonMap.mapButton(0, players.selectedValue, data["index"]);
+                    sym = ButtonMap.mapButton(players.selectedValue, data["index"]);
                     data["button"] = ButtonMap.buttonToString(players.selectedValue, sym);
                     dataModel.replace(indexPath, data);
                 }
