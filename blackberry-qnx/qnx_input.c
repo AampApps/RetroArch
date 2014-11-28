@@ -216,6 +216,16 @@ static void qnx_input_autodetect_gamepad(input_device_t* controller)
       controller->device = DEVICE_KEYPAD;
       strlcpy(controller->device_name, "BlackBerry Q Keypad", sizeof(controller->device_name));
    }
+   else if (strstr(controller->id, "azerty"))
+   {
+      controller->device = DEVICE_KEYPAD;
+      strlcpy(controller->device_name, "BlackBerry Q Keypad", sizeof(controller->device_name));
+   }
+   else if (strstr(controller->id, "qwertz"))
+   {
+      controller->device = DEVICE_KEYPAD;
+      strlcpy(controller->device_name, "BlackBerry Q Keypad", sizeof(controller->device_name));
+   }
    else if (strstr(controller->id, "BB-VKB"))
    {
       controller->device = DEVICE_NONE;
