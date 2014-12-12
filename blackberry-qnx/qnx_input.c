@@ -206,30 +206,23 @@ static void qnx_input_autodetect_gamepad(input_device_t* controller)
       controller->device = DEVICE_WIIMOTE;
       strlcpy(controller->device_name, "Wiimote", sizeof(controller->device_name));
    }
-   else if (strstr(controller->id, "0A5C-8502"))
+   else if (controller->type == SCREEN_EVENT_KEYBOARD)
    {
-      controller->device = DEVICE_KEYBOARD;
-      strlcpy(controller->device_name, "BlackBerry BT Keyboard", sizeof(controller->device_name));
-   }
-   else if (strstr(controller->id, "qwerty"))
-   {
-      controller->device = DEVICE_KEYPAD;
-      strlcpy(controller->device_name, "BlackBerry Q Keypad", sizeof(controller->device_name));
-   }
-   else if (strstr(controller->id, "azerty"))
-   {
-      controller->device = DEVICE_KEYPAD;
-      strlcpy(controller->device_name, "BlackBerry Q Keypad", sizeof(controller->device_name));
-   }
-   else if (strstr(controller->id, "qwertz"))
-   {
-      controller->device = DEVICE_KEYPAD;
-      strlcpy(controller->device_name, "BlackBerry Q Keypad", sizeof(controller->device_name));
-   }
-   else if (strstr(controller->id, "BB-VKB"))
-   {
-      controller->device = DEVICE_NONE;
-      strlcpy(controller->device_name, "None", sizeof(controller->device_name));
+      if (strstr(controller->id, "0A5C-8502"))
+      {
+         controller->device = DEVICE_KEYBOARD;
+         strlcpy(controller->device_name, "BlackBerry BT Keyboard", sizeof(controller->device_name));
+      }
+      else if (strstr(controller->id, "BB-VKB"))
+      {
+         controller->device = DEVICE_NONE;
+         strlcpy(controller->device_name, "None", sizeof(controller->device_name));
+      }
+      else
+      {
+         controller->device = DEVICE_KEYPAD;
+         strlcpy(controller->device_name, "BlackBerry Q Keypad", sizeof(controller->device_name));
+      }
    }
    else if (controller->id[0])
    {
